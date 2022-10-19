@@ -1,4 +1,14 @@
-<?php session_start();?>
+<?php session_start();
+    include './connectDB.php';
+    include './admin/handle_getData.php';
+
+    //Get category
+    $categories = get_data($connect, 'categories');
+
+    //Get type of category
+    $typeofcategory = get_data($connect, 'type_of_category');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +25,7 @@
     <?php include './layout/header.php'?>
     <main>
         <?php include './layout/category.php'?>
-        <h2>Trang dang duoc cap nhat</h2>
+        
     </main>
     <?php include './layout/footer.php'?>
 </body>
