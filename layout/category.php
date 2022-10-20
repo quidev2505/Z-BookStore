@@ -4,26 +4,25 @@
             <div id="category">
                 <i class="fa fa-bars" aria-hidden="true"></i>
                 &nbsp;
-                DANH MỤC SẢN PHẨM
+                <span id="list_category"> DANH MỤC SẢN PHẨM</span>
                 &nbsp;
                 &nbsp;
                 <i class="fa fa-caret-down" aria-hidden="true"></i>
-                <div id="list_category">
-                    <?php foreach($categories as $category){?>
-                        <div>
-                            <span>
-                                <?php echo $category['category_name']; $id_category = $category['id'];?>
-                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                            </span>
-                            <div class="container_typeofcategory">
-                                <?php foreach($typeofcategory as $typecategory){ if($typecategory['id_category'] == $id_category){?>
-                                    <a href="">
-                                        <?php echo $typecategory['name_of_type']?>
-                                    </a>
-                                <?php }}?>
-                            </div>
-                        </div>
-                    <?php } ?>
+                <div id="container_category">
+                    <div id="category_list">
+                        <?php foreach($categories as $category){?>
+                            <a href="?category_id=<?= $category['id']?>">
+                                <h4>
+                                    <?php echo $category['category_name'];?>
+                                </h4>
+                            </a>
+                            <?php foreach($typeofcategory as $typecategory){
+                                if($typecategory['id_category'] == $category['id']){    
+                            ?>
+                                <a href="?typeofcategory_id=<?= $typecategory['id']?>"><p><?= $typecategory['name_of_type']?></p></a>
+                            <?php }}?>
+                        <?php }?>
+                    </div>
                 </div>
             </div>
             <div id="right_category">
