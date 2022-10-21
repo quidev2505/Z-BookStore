@@ -28,16 +28,16 @@
             <div id="right_category">
                 <ul>
                     <li>
-                        <a href="../index.php">TRANG CHỦ</a>
+                        <a href="./index.php">TRANG CHỦ</a>
                     </li>
                     <li>
-                        <a href="">HỆ THỐNG NHÀ SÁCH</a>
+                        <a href="./hethongnhasach.php">HỆ THỐNG NHÀ SÁCH</a>
                     </li>
                     <li>
-                        <a href="">GIỚI THIỆU</a>
+                        <a href="./gioithieu.php">GIỚI THIỆU</a>
                     </li>
                     <li>
-                        <a href="">LIÊN HỆ</a>
+                        <a href="./lienhe.php">LIÊN HỆ</a>
                     </li>
                 </ul>
             </div>
