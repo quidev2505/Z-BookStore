@@ -137,6 +137,7 @@ main{
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    z-index: 999;
 }
 
 #category{
@@ -156,6 +157,7 @@ main{
     display: none;
     border-radius: 5px;
     flex-wrap: wrap;
+    z-index: 999;
 }
 
 

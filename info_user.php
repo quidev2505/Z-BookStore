@@ -34,7 +34,7 @@
             color: var(--second-color);
         }
         
-        span{
+        #top_info span{
             color: var(--main-color);
         }
 
