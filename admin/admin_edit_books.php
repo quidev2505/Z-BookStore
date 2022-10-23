@@ -32,17 +32,17 @@
             $description = $stmt_all['description'];
             
             //Get author name
-            $stmt_author = $connect -> prepare("select * from authors where id = ?");
+            $stmt_author = $connect -> prepare("select * from authors where id_author = ?");
             $stmt_author->execute([$id_author]);
             $author_name = $stmt_author->fetch()['author_name'];
 
             //Get category name
-            $stmt_category = $connect -> prepare("select * from categories where id = ?");
+            $stmt_category = $connect -> prepare("select * from categories where id_category = ?");
             $stmt_category->execute([$id_category]);
             $category_name = $stmt_category->fetch()['category_name'];
 
              //Get type of category name
-            $stmt_typeofcategory = $connect -> prepare("select * from type_of_category where id = ?");
+            $stmt_typeofcategory = $connect -> prepare("select * from type_of_category where id_typeofcategory = ?");
             $stmt_typeofcategory->execute([$id_typeofcategory]);
             $typeofcategory_name = $stmt_typeofcategory->fetch()['name_of_type'];
         }
@@ -70,19 +70,19 @@
                 //Tác giả
                 foreach($authors as $author){
                     if($author['author_name'] == $author_name_choose){
-                        $id_author_name_choose = $author['id'];
+                        $id_author_name_choose = $author['id_author'];
                     }
                 }
                 //Danh mục
                 foreach($categories as $category){
                     if($category['category_name'] == $category_name_choose){
-                        $id_category_name_choose = $category['id'];
+                        $id_category_name_choose = $category['id_category'];
                     }
                 }
                 //Thể loại
                 foreach($type_of_categories as $type_of_category){
                     if($type_of_category['name_of_type'] == $typeofcategory_name_choose){
-                        $id_typeofcategory_name_choose = $type_of_category['id'];
+                        $id_typeofcategory_name_choose = $type_of_category['id_typeofcategory'];
                     }
                 }
                 
@@ -377,7 +377,7 @@
                            
                             <label for="price">Giá  tiền</label>
                             <br>
-                            <input type="text" name="price" id="price" style="width:50%; height: 40px; margin-top:10px; border-radius:10px; border:1px solid #ccc;padding:10px" value="<?php echo $price?>" >
+                            <input type="number" name="price" id="price" style="width:50%; height: 40px; margin-top:10px; border-radius:10px; border:1px solid #ccc;padding:10px" value="<?php echo $price?>" >
 
                             <br>
 

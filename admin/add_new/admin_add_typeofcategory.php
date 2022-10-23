@@ -21,7 +21,7 @@
                 if($check_dupliacted == 0){
                     foreach($categories as $category){
                         if($category['category_name'] == $category_name_choose){
-                            $id_category_name_choose = $category['id'];
+                            $id_category_name_choose = $category['id_category'];
                         }
                     }
                     $sql = "insert into type_of_category(name_of_type, id_category) values(?,?)";

@@ -48,19 +48,19 @@
                     //Tác giả
                     foreach($authors as $author){
                         if($author['author_name'] == $author_name_choose){
-                            $id_author_name_choose = $author['id'];
+                            $id_author_name_choose = $author['id_author'];
                         }
                     }
                     //Danh mục
                     foreach($categories as $category){
                         if($category['category_name'] == $category_name_choose){
-                            $id_category_name_choose = $category['id'];
+                            $id_category_name_choose = $category['id_category'];
                         }
                     }
                     //Thể loại
                     foreach($type_of_categories as $type_of_category){
                         if($type_of_category['name_of_type'] == $typeofcategory_name_choose){
-                            $id_typeofcategory_name_choose = $type_of_category['id'];
+                            $id_typeofcategory_name_choose = $type_of_category['id_typeofcategory'];
                         }
                     }
 
@@ -307,7 +307,7 @@
 
                             <label for="price">Giá tiền</label>
                             <br>
-                            <input type="text" name="price" id="price" style="width:50%; height: 40px; margin-top:10px; border-radius:10px; border:1px solid #ccc;padding:10px" required>
+                            <input type="number" name="price" id="price" style="width:50%; height: 40px; margin-top:10px; border-radius:10px; border:1px solid #ccc;padding:10px" required>
                             <br>
 
                             <br>

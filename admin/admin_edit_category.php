@@ -7,7 +7,7 @@
 
         if(isset($_GET['id'])){
             $id = $_GET['id'];
-            $sql = "select * from categories where id = ?";
+            $sql = "select * from categories where id_category = ?";
             $stmt = $connect -> prepare($sql);
             $stmt -> execute([$id]);
             $stmt1 = $stmt -> fetch();
@@ -24,7 +24,7 @@
                 $check_dupliacted = duplicatedData($connect, $data_add, $data_from_table, $table_name);
 
                 if($check_dupliacted == 0){
-                    $sql = "update categories set category_name = ? where id = ?";
+                    $sql = "update categories set category_name = ? where id_category = ?";
                     $stmt = $connect -> prepare($sql);
                     $stmt -> execute([$data_add, $id_category]);
                     header("Location: ?success&id=$id_category");

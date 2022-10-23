@@ -46,6 +46,13 @@
 
         $books = $stmt->fetchAll();
         
+
+        
+        if(isset($_GET['del_success'])){
+            echo("<script>alert('Xóa thành công')</script>");
+        }else if(isset($_GET['del_fail'])){
+            echo("<script>alert('Xóa thất bại do lỗi truy vấn !')</script>");
+        }
 ?>
 
 
@@ -171,21 +178,21 @@
                                             <td><?php echo $book['title'];?></td>
                                             <td>
                                                 <?php foreach($authors as $author){ 
-                                                    if($author['id'] == $book['id_author']){
+                                                    if($author['id_author'] == $book['id_author']){
                                                         echo $author['author_name'];
                                                     }    
                                                 }?>
                                             </td>
                                             <td>
                                                 <?php foreach($categories as $category){ 
-                                                    if($category['id'] == $book['id_category']){
+                                                    if($category['id_category'] == $book['id_category']){
                                                         echo $category['category_name'];
                                                     }    
                                                 }?>
                                             </td>
                                             <td>
                                                 <?php foreach($type_of_categories as $type_of_category){ 
-                                                    if($type_of_category['id'] == $book['id_typeofcategory']){
+                                                    if($type_of_category['id_typeofcategory'] == $book['id_typeofcategory']){
                                                         echo $type_of_category['name_of_type'];
                                                     }    
                                                 }?>
@@ -205,7 +212,7 @@
                                                     <a href="./admin_edit_books.php?id=<?php echo $book['id'];?>" style="margin-right:20px;">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                     </a>
-                                                    <a href="./delete_item.php?id=<?php echo $book['id']?>&page=books&table_name=books">
+                                                    <a href="./delete_item.php?id=<?php echo $book['id']?>&page=books&table_name=books&column_id=id">
                                                         <i class="fa fa-trash" aria-hidden="true" width="20px"></i>
                                                     </a>
                                                 </div>

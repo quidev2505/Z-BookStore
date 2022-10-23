@@ -7,7 +7,7 @@
 
         if(isset($_GET['id'])){
             $id = $_GET['id'];
-            $sql = "select * from authors where id = ?";
+            $sql = "select * from authors where id_author = ?";
             $stmt = $connect -> prepare($sql);
             $stmt -> execute([$id]);
             $stmt = $stmt -> fetch();
@@ -24,7 +24,7 @@
                 $check_dupliacted = duplicatedData($connect, $data_add, $data_from_table, $table_name);
 
                 if($check_dupliacted == 0){
-                    $sql = "update authors set author_name = ?where id = ?";
+                    $sql = "update authors set author_name = ?where id_author = ?";
                     $stmt = $connect -> prepare($sql);
                     $stmt -> execute([$data_add, $id_author]);
                     header("Location: ?success&id=$id_author");

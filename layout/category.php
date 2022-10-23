@@ -11,15 +11,15 @@
                 <div id="container_category">
                     <div id="category_list">
                         <?php foreach($categories as $category){?>
-                            <a href="?category_id=<?= $category['id']?>">
+                            <a href="?category_id=<?= $category['id_category']?>">
                                 <h4>
                                     <?php echo $category['category_name'];?>
                                 </h4>
                             </a>
                             <?php foreach($typeofcategory as $typecategory){
-                                if($typecategory['id_category'] == $category['id']){    
+                                if($typecategory['id_category'] == $category['id_category']){    
                             ?>
-                                <a href="?typeofcategory_id=<?= $typecategory['id']?>"><p><?= $typecategory['name_of_type']?></p></a>
+                                <a href="?typeofcategory_id=<?= $typecategory['id_typeofcategory']?>"><p><?= $typecategory['name_of_type']?></p></a>
                             <?php }}?>
                         <?php }?>
                     </div>
@@ -43,7 +43,7 @@
             </div>
             <div id="hotline">
                 <i class="fa fa-phone" aria-hidden="true"></i>
-                HOTLINE: 0907532754
+                &nbsp; HOTLINE: 0907532754
             </div>
             <div id="time-open">
                 <i class="fa fa-calendar" aria-hidden="true"></i>

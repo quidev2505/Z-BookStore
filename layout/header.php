@@ -11,7 +11,7 @@
                             <li><a href="signin.php">Đăng nhập</a></li>
                         </ul>
                     <?php }else
-                        echo 'Người dùng <span style="font-weight:bold; font-style:italic">'.$_SESSION['user_signin']."</span>";
+                        echo '<a href="info_user.php" style="text-decoration: none;color: var(--second-color);">Người dùng <span style="font-weight:bold; font-style:italic">'.$_SESSION['user_signin']."</span></a>";
                     ?>
                     <?php if(isset($_SESSION['user_signin'])){?>
                         <div class="log_out_btn" style="display: inline-block;">

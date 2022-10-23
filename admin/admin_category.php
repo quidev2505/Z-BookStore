@@ -18,6 +18,12 @@
             $categories = get_data($connect, 'categories');
         }
         
+        
+        if(isset($_GET['del_success'])){
+            echo("<script>alert('Xóa thành công')</script>");
+        }else if(isset($_GET['del_fail'])){
+            echo("<script>alert('Xóa thất bại do lỗi truy vấn !')</script>");
+        }
 ?>
 
 
@@ -136,10 +142,10 @@
                                                 ?>
                                             </td>
                                             <td style="text-align:center;">
-                                                <a href="./admin_edit_category.php?id=<?php echo $category['id']?>">
+                                                <a href="./admin_edit_category.php?id=<?php echo $category['id_category']?>">
                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="./delete_item.php?id=<?php echo $category['id']?>&page=category&table_name=categories">
+                                                <a href="./delete_item.php?id=<?php echo $category['id_category']?>&page=category&table_name=categories&column_id=category">
                                                     <i class="fa fa-trash" aria-hidden="true" width="20px"></i>
                                                 </a>
                                             </td>

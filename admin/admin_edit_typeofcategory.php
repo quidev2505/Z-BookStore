@@ -10,7 +10,7 @@
 
         if(isset($_GET['id'])){
             $id = $_GET['id'];
-            $sql1 = "select * from type_of_category where id = ?";
+            $sql1 = "select * from type_of_category where id_typeofcategory = ?";
             $stmt = $connect -> prepare($sql1);
             $stmt -> execute([$id]);
             $stmt1 = $stmt -> fetch();
@@ -18,7 +18,7 @@
 
 
             //Get data from categories 
-            $sql2 = "select * from categories where id = ?";
+            $sql2 = "select * from categories where id_category = ?";
             $stmt2 = $connect -> prepare($sql2);
             $stmt3 = $stmt2 -> execute([$stmt1['id_category']]);
             $stmt3 = $stmt2 -> fetch();
@@ -35,16 +35,16 @@
                 $id_typeofcategory = $_POST['id_typeofcategory'];
 
                 $sql = "select * from type_of_category typeof join categories cates on
-                        typeof.id_category = cates.id where name_of_type = ? and category_name = ?";
+                        typeof.id_category = cates.id_category where name_of_type = ? and category_name = ?";
                 $stmt = $connect -> prepare($sql);
                 $stmt -> execute([$name_typeofcategory,$category_name_choose]);
 
                 if($stmt->rowCount() == 0 ){
                     foreach($categories as $category){
                         if($category['category_name'] == $category_name_choose)
-                            $id_category = $category['id'];
+                            $id_category = $category['id_category'];
                     }
-                    $sql = "update type_of_category set name_of_type = ?, id_category = ? where id = ?";
+                    $sql = "update type_of_category set name_of_type = ?, id_category = ? where id_typeofcategory = ?";
                     $stmt = $connect -> prepare($sql);
                     $stmt->execute([$name_typeofcategory, $id_category, $id_typeofcategory]);
                     header("Location: ?success&id=$id_typeofcategory");

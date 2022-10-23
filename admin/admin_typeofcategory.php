@@ -25,6 +25,13 @@
          //Get data from categories
          $categories = get_data($connect, 'categories');
 
+
+         
+         if(isset($_GET['del_success'])){
+            echo("<script>alert('Xóa thành công')</script>");
+        }else if(isset($_GET['del_fail'])){
+            echo("<script>alert('Xóa thất bại do lỗi truy vấn !')</script>");
+        }
 ?>
 
 
@@ -146,16 +153,16 @@
                                             <td style="text-align:center">
                                                 <?php 
                                                     foreach($categories as $category){
-                                                        if($category['id'] == $type_of_category['id_category'])
+                                                        if($category['id_category'] == $type_of_category['id_category'])
                                                             echo $category['category_name'];
                                                     }  
                                                 ?>
                                             </td>
                                             <td style="text-align:center;">
-                                                <a href="./admin_edit_typeofcategory.php?id=<?php echo $type_of_category['id']?>">
+                                                <a href="./admin_edit_typeofcategory.php?id=<?php echo $type_of_category['id_typeofcategory']?>">
                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="./delete_item.php?id=<?php echo $type_of_category['id']?>&page=typeofcategory&table_name=type_of_category">
+                                                <a href="./delete_item.php?id=<?php echo $type_of_category['id_typeofcategory']?>&page=typeofcategory&table_name=type_of_category&column_id=typeofcategory">
                                                     <i class="fa fa-trash" aria-hidden="true" width="20px"></i>
                                                 </a>
                                             </td>

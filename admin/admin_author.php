@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+    session_start();
     if(isset($_SESSION['admin_signin'])){
         require '../connectDB.php';
         require './handle_getData.php';
@@ -17,6 +18,13 @@
         }else{
              //Get data from authors
             $authors = get_data($connect, 'authors');
+        }
+
+
+        if(isset($_GET['del_success'])){
+            echo("<script>alert('Xóa thành công')</script>");
+        }else if(isset($_GET['del_fail'])){
+            echo("<script>alert('Xóa thất bại do lỗi truy vấn !')</script>");
         }
 ?>
 
@@ -136,10 +144,10 @@
                                                 ?>
                                             </td>
                                             <td style="text-align:center;">
-                                                <a href="./admin_edit_author.php?id=<?= $author['id'] ?>">
+                                                <a href="./admin_edit_author.php?id=<?= $author['id_author'] ?>">
                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="./delete_item.php?id=<?php echo $author['id']?>&page=author&table_name=authors">
+                                                <a href="./delete_item.php?id=<?php echo $author['id_author']?>&page=author&table_name=authors&column_id=author">
                                                     <i class="fa fa-trash" aria-hidden="true" width="20px"></i>
                                                 </a>
                                             </td>
