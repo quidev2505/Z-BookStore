@@ -59,6 +59,8 @@
                         echo '<p id="success"><span id="mess_noti_success">Bạn đã đăng ký thành công.</span> Chuyển hướng đăng nhập tại <a href="./signin.php">đây</a></p>';
                     }elseif($_GET['signup_status'] == 'false'){
                         echo '<p id="fail"><span id="mess_noti_fail">Bạn chưa nhập thông tin đầy đủ !</span></p>';
+                    }else{
+                        echo '<p id="fail"><span id="mess_noti_fail">Đã tồn tại tên đăng nhập hoặc tên đầy đủ !</span></p>';
                     }
                 }
                 else{

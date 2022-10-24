@@ -1,3 +1,14 @@
+<?php 
+    include './connectDB.php';
+    include './admin/handle_getData.php';
+
+    //Get category
+    $categories = get_data($connect, 'categories');
+
+    //Get type of category
+    $typeofcategory = get_data($connect, 'type_of_category');
+
+?>
 <!-- Category  bar -->
 <div id="category_bar">
         <div class="category_general">

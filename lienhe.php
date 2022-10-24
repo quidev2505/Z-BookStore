@@ -1,12 +1,4 @@
 <?php session_start();
-    include './connectDB.php';
-    include './admin/handle_getData.php';
-
-    //Get category
-    $categories = get_data($connect, 'categories');
-
-    //Get type of category
-    $typeofcategory = get_data($connect, 'type_of_category');
 
 ?>
 <!DOCTYPE html>
@@ -20,6 +12,11 @@
     <!--Insert Fontawesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        main{
+            height: 1000px;
+        }
+    </style>
 </head>
 <body>
     <?php include './layout/header.php'?>

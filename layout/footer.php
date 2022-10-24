@@ -2,8 +2,9 @@
     <div id="top_footer">
         <div id="contact_info">
             <div id="phone">
+                &nbsp;
                 <i class="fa fa-phone" aria-hidden="true"></i>
-                Đặt hàng trực tuyến
+                Đặt hàng trực tuyến &nbsp;
                 SĐT: 0907532754
             </div>
         </div>
