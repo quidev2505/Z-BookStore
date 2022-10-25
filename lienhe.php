@@ -1,5 +1,7 @@
 <?php session_start();
-
+    if(isset($_GET['your_name'])){
+        $noti = 'Liên hệ của bạn đã được gửi đi !';
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iên Hệ</title>
+    <title>Liên Hệ</title>
 
     <!--Insert Fontawesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -23,7 +25,11 @@
     <main>
         <?php include './layout/category.php'?>
         <div id="hethong_zbook">
-            <h2>LIÊN HỆ</h2>
+            <h2>LIÊN HỆ
+            <span style="color:var(--main-color);">
+                <?php if(isset($_GET['your_name'])) echo " --- $noti";?>
+            </span>
+            </h2>
             <hr>
             <div id="content_page_system_book">
                 <div id="gg_map">
@@ -31,10 +37,12 @@
                 </div>
             </div>
 
-            <h2>Viết nhận xét</h2>
+            <h2>Viết nhận xét         
+            </h2>
+            
             <hr>
-            <form action="#" id="form_contact">
-                <input type="text" placeholder="Tên của bạn" required>
+            <form action="#s" id="form_contact" method="GET">
+                <input type="text" placeholder="Tên của bạn" required name="your_name">
                 <textarea name="" id="" cols="30" rows="10" placeholder="Viết bình luận" required></textarea>
                 <input type="submit" value="Gửi liên hệ">
             </form>

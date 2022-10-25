@@ -150,6 +150,7 @@
             height: 180px;
             margin: 10px 0;
         }
+
         .img_book_van_hoc img{
             width: 100%;
             height: 100%;
@@ -221,7 +222,7 @@
 
         #divide_book_container #left_book{
             width: 259px;
-            height: 550px;
+            height: 315px;
             border: 1px solid #ccc;
             border-radius: 3px;
             padding: 20px;
@@ -312,6 +313,20 @@
             display: flex;
             flex-wrap: wrap;
         }
+
+        .img_book_show{
+            transition: all 0.3s linear;
+        }
+
+        .see_detail:hover .img_book_show{
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+    
+        .add_to_cart{
+            text-decoration: none;
+            color: var(--white-color);
+        }
     </style>
 </head>
 <body>
@@ -345,7 +360,9 @@
                     <?php foreach($books_vanhoc as $book_vanhoc){?>
                         <div class="van_hoc_book_item">
                             <div class="img_book_van_hoc">
-                                <img src="./admin/upload/<?= $book_vanhoc['book_image'] ?>" alt="">
+                                <a href="./detail_book.php?id=<?= $book_vanhoc['id']?>" class="see_detail">
+                                    <img src="./admin/upload/<?= $book_vanhoc['book_image'] ?>" alt="" class="img_book_show" title="Xem chi tiết">
+                                </a> 
                                 <p id="name_book"><?= $book_vanhoc['title']?></p>
                                 Giá: 
                                 <span id="price_book">
@@ -353,7 +370,9 @@
                                 </span>
                                 <div id="add_cart">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    Thêm vào giỏ hàng
+                                    <a href="addToCart.php?id=<?= $book_vanhoc['id'] ?>" class="add_to_cart">
+                                        Thêm vào giỏ hàng
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -371,7 +390,9 @@
                     <?php foreach($books_kinhtes as $book_kinhte){?>
                         <div class="van_hoc_book_item">
                             <div class="img_book_van_hoc">
-                                <img src="./admin/upload/<?= $book_kinhte['book_image'] ?>" alt="">
+                                <a href="./detail_book.php?id=<?= $book_kinhte['id']?>" class="see_detail">
+                                    <img src="./admin/upload/<?= $book_kinhte['book_image'] ?>" alt="" class="img_book_show" title="Xem chi tiết">
+                                </a>
                                 <p id="name_book"><?= $book_kinhte['title']?></p>
                                 Giá: 
                                 <span id="price_book">
@@ -379,7 +400,9 @@
                                 </span>
                                 <div id="add_cart">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    Thêm vào giỏ hàng
+                                    <a href="addToCart.php?id=<?= $book_kinhte['id'] ?>" class="add_to_cart">
+                                        Thêm vào giỏ hàng
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -413,7 +436,9 @@
                     <?php foreach($books_tamlys as $book_tamly){?>
                         <div class="van_hoc_book_item">
                             <div class="img_book_van_hoc">
-                                <img src="./admin/upload/<?= $book_tamly['book_image'] ?>" alt="">
+                                <a href="./detail_book.php?id=<?= $book_tamly['id']?>" class="see_detail">
+                                    <img src="./admin/upload/<?= $book_tamly['book_image'] ?>" alt="" class="img_book_show" title="Xem chi tiết">
+                                </a>
                                 <p id="name_book"><?= $book_tamly['title']?></p>
                                 Giá: 
                                 <span id="price_book">
@@ -421,7 +446,9 @@
                                 </span>
                                 <div id="add_cart">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    Thêm vào giỏ hàng
+                                    <a href="addToCart.php?id=<?= $book_tamly['id'] ?>" class="add_to_cart">
+                                        Thêm vào giỏ hàng
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -430,14 +457,16 @@
             </div>
 
             <div id="right_book_2">
-                <div><h3 id="pointer">SÁCH TIẾU SỬ - HỒI KÝ</h3></div>
+                <div><h3 id="pointer" style="width: 209px">SÁCH TIỂU SỬ - HỒI KÝ</h3></div>
                 
 
                 <div id="side_book">
                     <?php foreach($books_tieusus as $book_tieusu){?>
                         <div class="van_hoc_book_item">
                             <div class="img_book_van_hoc">
-                                <img src="./admin/upload/<?= $book_tieusu['book_image'] ?>" alt="">
+                                <a href="./detail_book.php?id=<?= $book_tieusu['id']?>" class="see_detail">
+                                    <img src="./admin/upload/<?= $book_tieusu['book_image'] ?>" alt="" class="img_book_show" title="Xem chi tiết"> 
+                                </a>
                                 <p id="name_book"><?= $book_tieusu['title']?></p>
                                 Giá: 
                                 <span id="price_book">
@@ -445,7 +474,9 @@
                                 </span>
                                 <div id="add_cart">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    Thêm vào giỏ hàng
+                                    <a href="addToCart.php?id=<?= $book_tieusu['id'] ?>" class="add_to_cart">
+                                        Thêm vào giỏ hàng
+                                    </a>
                                 </div>
                             </div>
                         </div>

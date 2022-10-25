@@ -77,6 +77,8 @@
     width: 266px;
     height: 230px;
     padding-top: 30px;
+    margin-left: -99px;
+    margin-top: 16px;
 }
 
 #img_logo img{

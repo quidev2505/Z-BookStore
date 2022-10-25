@@ -25,7 +25,7 @@
 
         <div id="middle_header">
             <a id="img_logo" href="./index.php">
-                <img src="./assets/img/logo_book.png" alt="anh_logo">
+                <img src="./assets/img/logo_ZBooks.png" alt="anh_logo">
             </a>
 
             <div id="search_book">

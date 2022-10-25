@@ -58,7 +58,7 @@
             </div>
             <div id="time-open">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                8:00 - 20:00
+                7:00 - 23:00
             </div>
         </div>
 </div>

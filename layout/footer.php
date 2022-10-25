@@ -30,12 +30,13 @@
                     <p>Bài Viết</p>
                 </div>
                 <div id="item_summary">
-                    <h4>0907534754</h4>
-                    <p>Thứ 2 - Thứ 7</p>
-                    <p>7h - 23h</p>
+                    <h4>0907532754</h4>
+                    <p><i class="fa-regular fa-calendar"></i> &nbsp;Thứ 2 - Thứ 7</p>
+                    <p>  <i class="fa-sharp fa-solid fa-clock"></i> &nbsp;7h - 23h</p>
                     
                     <p>
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <i class="fa-sharp fa-solid fa-location-dot"></i>
+                        &nbsp;
                         3/2 Xuân Khánh - An Hòa - Ninh Kiều - Cần Thơ
                     </p>
                 </div>
