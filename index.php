@@ -250,7 +250,9 @@
             flex-direction: column;
             border: 1px solid #ccc;
             border-radius: 3px;
-            padding: 20px;
+            /* padding: 20px; */
+            padding: 20px 0 20px 32px;
+            padding-right: -20px;
             border-top: 2px solid var(--main-color);
             margin-right: 20px;
             background-color: var(--white-color);
@@ -263,7 +265,7 @@
             flex-direction: column;
             border: 1px solid #ccc;
             border-radius: 3px;
-            padding: 20px;
+            padding: 20px 0 20px 32px;
             border-top: 2px solid var(--main-color);
             margin-right: 20px;
             background-color: var(--white-color);

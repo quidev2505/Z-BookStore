@@ -29,7 +29,7 @@
             </a>
 
             <div id="search_book">
-                <input type="text" placeholder="Tìm kiếm sản phẩm..." id="input_search">
+                <input type="text" placeholder="Tìm kiếm sản phẩm..." id="input_search" name="search_book">
                 <div id="btn_search">
                     <i class="fa fa-search" aria-hidden="true"></i>
                     &nbsp;&nbsp;Tìm kiếm

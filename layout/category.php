@@ -21,8 +21,13 @@
                 <i class="fa fa-caret-down" aria-hidden="true"></i>
                 <div id="container_category">
                     <div id="category_list">
+                        <a href="./collections.php?category_name=all">
+                            <h4>
+                                Tất cả các sách
+                            </h4>
+                        </a>
                         <?php foreach($categories as $category){?>
-                            <a href="?category_id=<?= $category['id_category']?>">
+                            <a href="./collections.php?category_id=<?= $category['id_category']?>">
                                 <h4>
                                     <?php echo $category['category_name'];?>
                                 </h4>
@@ -30,7 +35,7 @@
                             <?php foreach($typeofcategory as $typecategory){
                                 if($typecategory['id_category'] == $category['id_category']){    
                             ?>
-                                <a href="?typeofcategory_id=<?= $typecategory['id_typeofcategory']?>"><p><?= $typecategory['name_of_type']?></p></a>
+                                <a href="./collections.php?typeofcategory_id=<?= $typecategory['id_typeofcategory']?>"><p><?= $typecategory['name_of_type']?></p></a>
                             <?php }}?>
                         <?php }?>
                     </div>
