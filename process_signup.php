@@ -8,7 +8,7 @@
         $stmt = $connect->prepare("select * from account where fullname = ? or username = ?");
         $stmt -> execute([$fullname, $username]);
 
-        if($stmt->rowCount() == 1){
+        if($stmt->rowCount() > 0){
             header("Location: signup.php?signup_status=duplicated");
         }else{
             $stmt = $connect -> prepare("insert into account(fullname, username, password) values(?,?,?)");

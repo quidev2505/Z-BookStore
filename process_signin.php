@@ -6,32 +6,38 @@
 
         require './connectDB.php';
 
-        $stmt = $connect -> prepare("select * from account where username=? and password=?");
+        if($username == 'admin'){
+            $stmt = $connect -> prepare("select * from account where username=?");
+            $stmt->execute([$username]);
+            $password_hash_fromDB = $stmt->fetch()['password'];
 
-        $stmt->execute([$username, $password]);
+            if(password_verify($password , $password_hash_fromDB)){
+                $_SESSION['admin_signin'] = 'Tài khoản Admin';
+                header("Location: ./admin/admin_books.php?page=1");
+            }else{
+                header("Location: signin.php?signin_status=false");
+                exit();
+            }
+        }else{
+            $stmt = $connect -> prepare("select * from account where username=? and password=?");
 
-        $data = $stmt->fetch();
+            $stmt->execute([$username, $password]);
+    
+            $data = $stmt->fetch();
 
-        if($stmt->rowCount() == 1){
+    
             $fullname = $data['fullname'];
             $priority = $data['priority'];
-            if($priority == 0){
-                $_SESSION['user_signin'] = $fullname;
-                header("Location: index.php");
-                exit();
-            }elseif($priority == 1){
-                $_SESSION['admin_signin'] =  $fullname;
-                header("Location: ./admin/admin_books.php?page=1");
+
+            if($stmt->rowCount() == 1){
+                if($priority == 0){
+                    $_SESSION['user_signin'] = $fullname;
+                    header("Location: index.php");
+                    exit();
+                }
+            }else{
+                header("Location: signin.php?signin_status=false");
                 exit();
             }
         }
-        else{
-            header("Location: signin.php?signin_status=false");
-            exit();
-        }
     }
-    else{
-        header("Location: signin.php?signin_status=false");
-        exit();
-    }
-

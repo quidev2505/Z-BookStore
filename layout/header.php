@@ -27,14 +27,17 @@
             <a id="img_logo" href="./index.php">
                 <img src="./assets/img/logo_ZBooks.png" alt="anh_logo">
             </a>
-
-            <div id="search_book">
-                <input type="text" placeholder="Tìm kiếm sản phẩm..." id="input_search" name="search_book">
-                <div id="btn_search">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    &nbsp;&nbsp;Tìm kiếm
+            
+            <form action="./search.php">
+                <div id="search_book">
+                    <input type="text" placeholder="Tìm kiếm sản phẩm..." id="input_search" name="search_book">
+                    <div id="btn_search">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        &nbsp;&nbsp;
+                        <input type="submit" value="Tìm kiếm" style="    background-color: transparent;border: none; color: var(--white-color);">
+                    </div>
                 </div>
-            </div>
+            </form>
 
             <div id="btn_cart">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
