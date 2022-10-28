@@ -3,10 +3,11 @@
 
     if(isset($_GET['search_book'])){
         $search_info = $_GET['search_book'];
-        $sql = "select * from books where title LIKE '%$search_info%'";
+        $sql = "select * from books where title LIKE '%$search_info%' OR description LIKE '%$search_info%'";
 
         $stmt = $connect -> prepare($sql);
         $stmt->execute();
+        $count_book = $stmt->rowCount();
         $books = $stmt->fetchAll();
     }
 ?>
@@ -121,7 +122,7 @@
         <div id="top_content_search">
             <h2>Tìm kiếm</h2>
             <p>Kết quả tìm kiếm cho <span style="font-weight:bold;">
-            <?php if(isset($_GET['search_book'])) echo "\"".$search_info."\".";?>
+            <?php if(isset($_GET['search_book'])) echo "\"".$search_info."\"."."<br> Có $count_book kết quả tìm kiếm phù hợp !";?>
         </span></p>
         </div>
         <div id="bottom_search_book">
@@ -148,7 +149,7 @@
                     </div>
                 <?php }?>
             </div>
-            <?php } else echo '<h2 style="color:var(--main-color);">Không có sản phẩm cần tìm !</h2>'?>
+            <?php } else echo '<h2 style="color:var(--main-color);">Rất tiếc ! Không có sản phẩm bạn cần tìm !</h2>'?>
         </div>
     </div>
 

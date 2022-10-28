@@ -19,13 +19,33 @@
     $count_books = '';
 
 
+
+
+    //Phân trang
+    $so_sach_tren_trang = 12;
+
+    $trang_hien_tai = isset($_GET['page']) ? $_GET['page'] : 1;
+
+    $hang_bat_dau = $so_sach_tren_trang * ($trang_hien_tai - 1);
+    
+
     if(isset($_GET['category_name'])){
         $product_heading = 'Tất Cả Các Sách';
-        //Get type of book
-        $sql = "select * from books";
-        $stmt = $connect->prepare($sql);
+
+        //Get book origin
+        $sql_old = "select * from books";
+        $stmt = $connect->prepare($sql_old);
         $stmt->execute();
         $count_books = $stmt->rowCount();
+
+        $so_sach = $count_books;
+        $so_trang = (int)ceil((int)$so_sach / $so_sach_tren_trang);
+
+
+        //Get type of book
+        $sql = "select * from books order by id LIMIT $so_sach_tren_trang offset $hang_bat_dau";
+        $stmt = $connect->prepare($sql);
+        $stmt->execute();
         $books = $stmt -> fetchAll();
     }
     else if(isset($_GET['category_id'])){
@@ -34,11 +54,23 @@
                 $product_heading = 'Sách '.($category['category_name']);
             }
         }
+
+        //Get book origin
+        $sql_old = "select * from books where id_category=?";
+        $stmt = $connect->prepare($sql_old);
+        $stmt->execute([$_GET['category_id']]);
+        
+        $count_books = $stmt->rowCount();
+
+        $so_sach = $count_books;
+        $so_trang = (int)ceil((int)$so_sach / $so_sach_tren_trang);
+
+
          //Get type of categoories
-        $sql = "select * from books where id_category=? ";
+        $sql = "select * from books where id_category=? order by id LIMIT $so_sach_tren_trang offset $hang_bat_dau";
         $stmt = $connect->prepare($sql);
         $stmt->execute([$_GET['category_id']]);
-        $count_books = $stmt->rowCount();
+
         $books= $stmt -> fetchAll();
 
     }else if(isset($_GET['typeofcategory_id'])){
@@ -47,36 +79,25 @@
                 $product_heading = 'Sách '.($typecategory['name_of_type']);
             }
         }
-          //Get type of book
-        $sql = "select * from books where id_typeofcategory=? ";
+
+        //Get book origin
+        $sql_old = "select * from books where id_typeofcategory=?";
+        $stmt = $connect->prepare($sql_old);
+        $stmt->execute([$_GET['typeofcategory_id']]);
+        
+        $count_books = $stmt->rowCount();
+
+        $so_sach = $count_books;
+        $so_trang = (int)ceil((int)$so_sach / $so_sach_tren_trang);
+
+        //Get type of book
+        $sql = "select * from books where id_typeofcategory=? order by id LIMIT $so_sach_tren_trang offset $hang_bat_dau";
         $stmt = $connect->prepare($sql);
         $stmt->execute([$_GET['typeofcategory_id']]);
-        $count_books = $stmt->rowCount();
+
         $books= $stmt -> fetchAll();
     } 
 
-
-
-       //Phân trang
-    $so_sach_tren_trang = 12;
-    $so_sach = $count_books;
-    $so_trang = (int)ceil((int)$so_sach / $so_sach_tren_trang);
-
-
-    $trang_hien_tai = isset($_GET['page']) ? $_GET['page'] : 1;
-
-    $hang_bat_dau = $so_sach_tren_trang * ($trang_hien_tai - 1);
-    
-
-    $sql = "select * from books order by id LIMIT $so_sach_tren_trang offset $hang_bat_dau";
-
-
-    
-    $stmt = $connect -> prepare($sql);
-    
-    $stmt -> execute();
-
-    $books = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -314,7 +335,7 @@
                                             border: 1px solid var(--main-color);
                                             padding: 5px;
                                             margin-right: 5px;
-                                            border-radius: 3px;color:var(--second-color);" href="?&search_book=<?php if(isset($_GET['search_book'])) echo $_GET['search_book'];?>&page=<?php echo $i?><?php if(isset($_GET['category_name'])) echo "&category_name=all";?><?php if(isset($_GET['category_id']))
+                                            border-radius: 3px;color:var(--second-color);" href="?page=<?php echo $i?><?php if(isset($_GET['category_name'])) echo "&category_name=all";?><?php if(isset($_GET['category_id']))
                                             echo "&category_id=".$_GET['category_id'];?><?php if(isset($_GET['typeofcategory_id']))
                                             echo "&typeofcategory_id=".$_GET['typeofcategory_id'];?>
                                             "><?php echo $i?></a>
