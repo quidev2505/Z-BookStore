@@ -72,6 +72,11 @@
                 <input type="password" name="password"  id="password" required>
                 <br>
                 <br>
+                <input type="checkbox" id="remember_sigin" style="    height: 14px;
+                display: inline-block;
+                width: 18px;" name="remember_signin">
+                <label for="remember_login" style="font-style:italic; color:var(--second-color);">Ghi nhớ đăng nhập</label>
+                <br>
                 <input type="submit" value="Đăng nhập" id="btn_signin">
                 <a href="./signup.php" style="color:var(--second-color);">Đăng ký</a>
             </form>

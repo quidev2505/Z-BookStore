@@ -1,3 +1,8 @@
+<?php 
+    if(isset($_COOKIE["user_signin_remember"])){
+        $_SESSION["user_signin"] = $_COOKIE["user_signin_remember"];
+    }
+?>
 <header>
         <!-- Welcome-bar -->
         <div id="top_header">

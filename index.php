@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+    session_start();
     include './connectDB.php';
 
     // Lấy dữ liệu sách Văn học

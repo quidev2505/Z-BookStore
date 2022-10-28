@@ -31,7 +31,11 @@
 
             if($stmt->rowCount() == 1){
                 if($priority == 0){
-                    $_SESSION['user_signin'] = $fullname;
+                    if(isset($_POST['remember_signin'])){
+                        SETCOOKIE("user_signin_remember", $fullname, time()+3600);
+                    }else{
+                        $_SESSION['user_signin'] = $fullname; 
+                    }  
                     header("Location: index.php");
                     exit();
                 }
