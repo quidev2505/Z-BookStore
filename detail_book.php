@@ -37,15 +37,12 @@
             display: flex;
             background-color: white;
             padding: 70px 140px 0;
-            justify-content: center;
+            justify-content: space-around;
         }
 
 
         #left_img_book{
-            width: 500px;
-            outline: none;
-            border: none;
-            height: 500px;
+            margin-right: 50px;
         }
 
         #left_img_book img{
@@ -105,12 +102,12 @@
             font-size: 15px;
         }
 
-        #description_book{
-            padding: 30px 140px 20px;
+        #description_book_detail{
+            padding: 30px 140px 30px;
             background-color: #fff;
         }
 
-        #description_book h3{
+        #description_book_detail h3{
             font-weight: 600;
             font-size: 20px;
             border: 1px solid var(--main-color);
@@ -120,8 +117,13 @@
             margin-bottom: 20px;
         }
 
-        #description_book p{
+        #description_book_detail p{
             width: fit-content;
+        }
+
+        #description_book_detail div{
+            height: 150px;
+            overflow-y: scroll;
         }
 
         #relation_book{
@@ -131,6 +133,8 @@
         #relation_book h3{
             text-align: center;
             color: var(--main-color);
+            padding: 10px;
+            border: 1px solid;
         }
 
         
@@ -200,7 +204,7 @@
         .img_book_van_hoc img{
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .img_book_show{
@@ -268,17 +272,19 @@
         </div>
 
         <!-- Description_book -->
-        <div id="description_book">
+        <div id="description_book_detail">
             <h3>MÔ TẢ SẢN PHẨM</h3>
             <br>
-            <p>
-                <?= $book_products['description'];?>
-            </p>
+            <div>
+                <p>
+                    <?= $book_products['description'];?>
+                </p>
+            </div>
         </div>
 
           <!-- Sản phẩm tương tự -->
           <div id="relation_book">
-            <h3>SÁCH TƯƠNG TỰ</h3>
+            <h3>SÁCH CÙNG LOẠI</h3>
             <br>
             <div id="book_relation">
                 <div id="right_book">
