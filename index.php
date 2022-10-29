@@ -363,7 +363,7 @@
                     <?php foreach($books_vanhoc as $book_vanhoc){?>
                         <div class="van_hoc_book_item">
                             <div class="img_book_van_hoc">
-                                <a href="./detail_book.php?id=<?= $book_vanhoc['id']?>" class="see_detail">
+                                <a href="./detail_book.php?id=<?= $book_vanhoc['id'] ?>" class="see_detail">
                                     <img src="./admin/upload/<?= $book_vanhoc['book_image'] ?>" alt="" class="img_book_show" title="Xem chi tiết">
                                 </a> 
                                 <p id="name_book"><?= $book_vanhoc['title']?></p>

@@ -1,5 +1,6 @@
 <?php
     include './connectDB.php';
+
     if(isset($_GET['id'])){
         $id_book = $_GET['id'];
 
@@ -36,7 +37,7 @@
         #container_detail_book{
             display: flex;
             background-color: white;
-            padding: 70px 140px 0;
+            padding: 50px 140px 0;
             justify-content: space-around;
         }
 
@@ -220,6 +221,44 @@
             text-decoration: none;
             color: var(--white-color);
         }
+
+        
+        #breadcrumb{
+            margin: -42px 0 17px 139px;
+            font-size: 14px;
+            color: var(--second-color);
+        }
+        
+        #breadcrumb a{
+            text-decoration: none;
+            color: var(--main-color);
+        }
+
+        #amount_add_to_cart{
+            font-size: 17px;
+            margin-top: 41px;
+            font-weight: bold;
+        }
+
+
+        #amount_add_to_cart input{
+            height: 30px;
+            border-radius: 5px;
+            width: 63px;
+            /* border: none; */
+            font-size: 15px;
+            text-align: center;
+        }
+
+        #amount_add_to_cart button{
+            height: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            width: 40px;
+            /* background: var(--second-color); */
+            border: none;
+            border-radius: 5px;
+            }
     </style>
 </head>
 <body>
@@ -227,7 +266,13 @@
     <?php include './layout/category.php'?>
 
     <main>
-        <!-- BreadCrum -->
+        <div id="breadcrumb">
+                <a href="./index.php">Trang chủ</a> /
+                <?php if(!empty($_GET['name'])){?>
+                    <a href="./collections.php?category_id=<?php echo $book_products['id_category']?>"><?php echo $_GET['name'].' /';?></a>
+                <?php }?>
+                <?= $book_products['title']; ?>
+        </div>
         <div id="container_detail_book">
             <div id="left_img_book">
                 <img src="./admin/upload/<?= $book_products['book_image'];?>" alt="">
@@ -241,9 +286,17 @@
                 
                 <hr>
                 <br>
-                <p style="font-weight:bold;display:inline;margin-right:300px">Giá bán:</p>
+                <p style="font-weight:bold;display:inline;">Giá bán:</p>
                 <span style="color:var(--main-color);font-size:20px;font-weight:bold;"><?= $book_products['price']." đ"?></span>
 
+       
+                <div id="amount_add_to_cart">
+                    Số lượng:
+                    <button id="decrease">-</button>
+                    <input type="text" id="show_amount" value="1" min="1" max="50">
+                    <button id="increase">+</button>
+                </div>
+                
                 <div id="btn_cart_and_order">
                     <div id="btn_addtoCart">
                         <div>
@@ -291,7 +344,7 @@
                     <?php foreach($book_relation as $book_rlt){?>
                         <div class="van_hoc_book_item">
                             <div class="img_book_van_hoc">
-                                <a href="./detail_book.php?id=<?= $book_rlt['id']?>" class="see_detail">
+                                <a href="./detail_book.php?id=<?= $book_rlt['id']?>&name=<?php if(isset($_GET['name'])) echo $_GET['name']; ?>" class="see_detail" class="see_detail">
                                     <img src="./admin/upload/<?= $book_rlt['book_image'] ?>" alt="" class="img_book_show" title="Xem chi tiết">
                                 </a>
                                 <p id="name_book"><?= $book_rlt['title']?></p>
@@ -315,5 +368,7 @@
 
 
     <?php include './layout/footer.php'?>
-
+    
+    <?php require './amout_addtoCart.php'?>
+    
 </body>

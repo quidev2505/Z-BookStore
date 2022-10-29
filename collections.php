@@ -266,6 +266,17 @@
             text-decoration: none;
             color: var(--white-color);
         }
+
+        #breadcrumb{
+            margin: -21px 0 23px 0;
+            font-size: 14px;
+            color: var(--second-color);
+        }
+        
+        #breadcrumb a{
+            text-decoration: none;
+            color: var(--main-color);
+        }
     </style>
 </head>
 <body>
@@ -273,7 +284,13 @@
     <?php include './layout/category.php';?>
     <main>
         <div id="container_all">
-            <!-- Breadcrum -->
+            <div id="breadcrumb">
+                <a href="./index.php">Trang chủ</a> /
+                <a href="./collections.php?category_name=all">Danh mục</a> /
+                <?php 
+                    echo '<span style="color:var(--second-color);">'.$product_heading.'</span>';
+                ?>
+            </div>
             <div id="container_collections">
                 <div id="category_menu">
                     <h2>DANH MỤC SÁCH</h2>
@@ -311,7 +328,7 @@
                     <?php foreach($books as $book){?>
                         <div class="van_hoc_book_item">
                             <div class="img_book_van_hoc">
-                                <a href="./detail_book.php?id=<?= $book['id']?>" class="see_detail">
+                                <a href="./detail_book.php?id=<?= $book['id']?>&name=<?= $product_heading;?>" class="see_detail">
                                     <img src="./admin/upload/<?= $book['book_image'] ?>" alt="" class="img_book_show" title="Xem chi tiết">
                                 </a>
                                 <p id="name_book"><?= $book['title']?></p>
