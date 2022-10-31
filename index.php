@@ -188,13 +188,18 @@
             border-radius: 5px;
             padding: 10px;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
             height: 35px;
             cursor: pointer;
             font-size: 14px;
             width: 162px;
             color: var(--white-color);
+        }
+
+        #add_cart:hover a{
+            color:black;
+            font-weight: bold;
         }
 
         /* Branch Book */
@@ -372,9 +377,9 @@
                                     <?php echo("{$book_vanhoc['price']} đ") ?>
                                 </span>
                                 <div id="add_cart">
-                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    <a href="addToCart.php?id=<?= $book_vanhoc['id'] ?>" class="add_to_cart">
-                                        Thêm vào giỏ hàng
+                                    <i class="fas fa-book-open"></i>
+                                    <a href="./detail_book.php?id=<?= $book_vanhoc['id']?>" class="add_to_cart">
+                                        Xem chi tiết
                                     </a>
                                 </div>
                             </div>
@@ -402,9 +407,9 @@
                                     <?php echo("{$book_kinhte['price']} đ") ?>
                                 </span>
                                 <div id="add_cart">
-                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    <a href="addToCart.php?id=<?= $book_kinhte['id'] ?>" class="add_to_cart">
-                                        Thêm vào giỏ hàng
+                                    <i class="fas fa-book-open"></i>
+                                    <a href="./detail_book.php?id=<?= $book_kinhte['id']?>" class="add_to_cart">
+                                        Xem chi tiết
                                     </a>
                                 </div>
                             </div>
@@ -422,7 +427,6 @@
                 <img src="./assets/img/branch4.jpg" alt="">
                 <img src="./assets/img/branch5.jpg" alt="">
                 <img src="./assets/img/branch6.jpg" alt="">
-               
             </div>
         </div>
         <div id="divide_book_container">
@@ -448,9 +452,9 @@
                                     <?php echo("{$book_tamly['price']} đ") ?>
                                 </span>
                                 <div id="add_cart">
-                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    <a href="addToCart.php?id=<?= $book_tamly['id'] ?>" class="add_to_cart">
-                                        Thêm vào giỏ hàng
+                                    <i class="fas fa-book-open"></i>
+                                    <a href="./detail_book.php?id=<?= $book_tamly['id']?>" class="add_to_cart">
+                                        Xem chi tiết
                                     </a>
                                 </div>
                             </div>
@@ -476,9 +480,9 @@
                                     <?php echo("{$book_tieusu['price']} đ") ?>
                                 </span>
                                 <div id="add_cart">
-                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    <a href="addToCart.php?id=<?= $book_tieusu['id'] ?>" class="add_to_cart">
-                                        Thêm vào giỏ hàng
+                                    <i class="fas fa-book-open"></i>
+                                    <a href="./detail_book.php?id=<?= $book_tieusu['id']?>" class="add_to_cart">
+                                        Xem chi tiết
                                     </a>
                                 </div>
                             </div>
