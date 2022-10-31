@@ -195,10 +195,25 @@
             font-size: 14px;
             width: 162px;
             color: var(--white-color);
+            position: relative;
+        }
+
+
+        #add_cart i{
+            position: absolute;
+            left: 13px;
+        }
+
+
+        #add_cart a{
+            width: 100%;
+            z-index: 999;
+            text-align: center;
+            line-height: 35px;
         }
 
         #add_cart:hover a{
-            color:black;
+            color: rgba(0,0,0,0.5);
             font-weight: bold;
         }
 

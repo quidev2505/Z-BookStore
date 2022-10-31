@@ -162,6 +162,7 @@
             font-weight: bold;
         }
 
+      
         #add_cart{
             margin-top: 9px;
             background-color: var(--main-color);
@@ -169,13 +170,33 @@
             border-radius: 5px;
             padding: 10px;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
             height: 35px;
             cursor: pointer;
             font-size: 14px;
             width: 162px;
             color: var(--white-color);
+            position: relative;
+        }
+
+
+        #add_cart i{
+            position: absolute;
+            left: 13px;
+        }
+
+
+        #add_cart a{
+            width: 100%;
+            z-index: 999;
+            text-align: center;
+        }
+
+        #add_cart:hover a{
+            color: rgba(0,0,0,0.5);
+            font-weight: bold;
+            line-height: 35px;
         }
 
           /*Văn học */
@@ -335,7 +356,7 @@
                         <div id="overlay">
                             <div id="content_overlay">
                                 <h2>Thêm vào giỏ hàng thành công !</h2>
-                                <p>Giỏ hàng bạn hiện tại có <span style="color:var(--main-color);"><?=$_SESSION['cart'][$_GET['id']]['amount']; ?></span> sản phẩm </p>
+                                <p>Giỏ hàng bạn hiện tại có <span style="color:var(--main-color);"><?=     $_SESSION['cart']['sum_amount_product']; ?></span> sản phẩm </p>
                                 <a id="continue_addtoCart" href="./detail_book.php?id=<?= $_GET['id'];?>">Tiếp tục mua hàng <i class="fa-solid fa-arrow-right"></i></a>
                                 <a href="./detail_book.php?id=<?= $_GET['id'];?>">Đặt hàng và thanh toán <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
@@ -407,9 +428,9 @@
                                     <?php echo("{$book_rlt['price']} đ") ?>
                                 </span>
                                 <div id="add_cart">
-                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    <a href="addToCart.php?id=<?= $book_rlt['id'] ?>" class="add_to_cart">
-                                        Thêm vào giỏ hàng
+                                    <i class="fas fa-book-open"></i>
+                                    <a href="./detail_book.php?id=<?= $book_rlt['id']?>" class="add_to_cart">
+                                        Xem chi tiết
                                     </a>
                                 </div>
                             </div>
@@ -423,6 +444,6 @@
 
     <?php include './layout/footer.php'?>
     
-    <?php require './amout_addtoCart.php'?>
+    <?php require './amount_addtoCart.php'?>
     
 </body>

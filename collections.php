@@ -205,7 +205,7 @@
             color:var(--main-color);
             font-weight: bold;
         }
-
+     
         #add_cart{
             margin-top: 9px;
             background-color: var(--main-color);
@@ -213,18 +213,38 @@
             border-radius: 5px;
             padding: 10px;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
             height: 35px;
             cursor: pointer;
             font-size: 14px;
             width: 162px;
             color: var(--white-color);
+            position: relative;
+        }
+
+
+        #add_cart i{
+            position: absolute;
+            left: 13px;
+        }
+
+
+        #add_cart a{
+            width: 100%;
+            z-index: 999;
+            text-align: center;
+            line-height: 35px;
+        }
+
+        #add_cart:hover a{
+            color: rgba(0,0,0,0.5);
+            font-weight: bold;
         }
 
           /*Văn học */
 
-          #van_hoc_book{
+        #van_hoc_book{
             display: flex;
             justify-content: space-between;
         }
@@ -337,9 +357,9 @@
                                     <?php echo("{$book['price']} đ") ?>
                                 </span>
                                 <div id="add_cart">
-                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    <a href="addToCart.php?id=<?= $book['id'] ?>" class="add_to_cart">
-                                        Thêm vào giỏ hàng
+                                    <i class="fas fa-book-open"></i>
+                                    <a href="./detail_book.php?id=<?= $book['id']?>" class="add_to_cart">
+                                        Xem chi tiết
                                     </a>
                                 </div>
                             </div>
