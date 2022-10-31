@@ -1,6 +1,6 @@
 <?php
     include './connectDB.php';
-
+    session_start();
     if(isset($_GET['id'])){
         $id_book = $_GET['id'];
 
@@ -71,6 +71,7 @@
         #btn_addtoCart div, #btn_order div{
             width: 247px;
             min-height: 50px;
+            cursor: pointer;
         }
 
         #btn_addtoCart div{
@@ -259,6 +260,46 @@
             border: none;
             border-radius: 5px;
             }
+
+        #overlay{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #2e26267d;
+            /* opacity: 0.6; */
+            z-index: 999;
+        }
+
+        #content_overlay{
+            position: absolute;
+            top: 15%;
+            left: 36%;
+            background-color: white;
+            padding: 52px;
+            border-radius: 10px;
+        }
+
+
+        #content_overlay h2{
+            margin-bottom: 25px;
+        }
+
+        #content_overlay a{
+            text-decoration: none;
+            margin-right: 10px;
+            border: 10px;
+            background-color: var(--main-color);
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 0px;
+            color: white;
+        }
+
+        #content_overlay p{
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -289,11 +330,24 @@
                 <p style="font-weight:bold;display:inline;">Giá bán:</p>
                 <span style="color:var(--main-color);font-size:20px;font-weight:bold;"><?= $book_products['price']." đ"?></span>
 
-       
+                <?php if(isset($_GET['success_addToCart'])){?>
+                    <div id="show_notify_addTocart">
+                        <div id="overlay">
+                            <div id="content_overlay">
+                                <h2>Thêm vào giỏ hàng thành công !</h2>
+                                <p>Giỏ hàng bạn hiện tại có <span style="color:var(--main-color);"><?=$_SESSION['cart'][$_GET['id']]['amount']; ?></span> sản phẩm </p>
+                                <a id="continue_addtoCart" href="./detail_book.php?id=<?= $_GET['id'];?>">Tiếp tục mua hàng <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="./detail_book.php?id=<?= $_GET['id'];?>">Đặt hàng và thanh toán <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                <?php }?>
+
+
                 <div id="amount_add_to_cart">
                     Số lượng:
                     <button id="decrease">-</button>
-                    <input type="text" id="show_amount" value="1" min="1" max="50">
+                    <input type="text" id="show_amount" value="1" min="1" max="50" name="amount_product">
                     <button id="increase">+</button>
                 </div>
                 

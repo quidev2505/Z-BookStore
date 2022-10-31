@@ -44,10 +44,12 @@
                 </div>
             </form>
 
-            <div id="btn_cart">
+            <div id="btn_cart" style="cursor:pointer;">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 &nbsp;
-                Giỏ hàng : <span>&nbsp;0</span>
+                <a href="./view_cart.php" style="    text-decoration: none; color: white;     margin-left: 10px;">
+                    Giỏ hàng : <span >&nbsp;<?=$_SESSION['cart'][$_GET['id']]['amount'];?></span>
+                </a>
             </div>
         </div>
     </header>
