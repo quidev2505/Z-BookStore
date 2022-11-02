@@ -331,7 +331,7 @@
         <div id="breadcrumb">
                 <a href="./index.php">Trang chủ</a> /
                 <?php if(!empty($_GET['name'])){?>
-                    <a href="./collections.php?category_id=<?php echo $book_products['id_category']?>"><?php echo $_GET['name'].' /';?></a>
+                    <a href="./collections.php?category_id=<?php echo $book_products['id_category']?>"><?php echo $_GET['name'].' /';?></a> 
                 <?php }?>
                 <?= $book_products['title']; ?>
         </div>
@@ -358,7 +358,7 @@
                                 <h2>Thêm vào giỏ hàng thành công !</h2>
                                 <p>Giỏ hàng bạn hiện tại có <span style="color:var(--main-color);"><?=     $_SESSION['cart']['sum_amount_product']; ?></span> sản phẩm </p>
                                 <a id="continue_addtoCart" href="./detail_book.php?id=<?= $_GET['id'];?>">Tiếp tục mua hàng <i class="fa-solid fa-arrow-right"></i></a>
-                                <a href="./detail_book.php?id=<?= $_GET['id'];?>">Đặt hàng và thanh toán <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="./check_out.php?id=<?= $_GET['id'];?>">Đặt hàng và thanh toán <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>

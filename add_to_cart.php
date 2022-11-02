@@ -2,13 +2,12 @@
     include './connectDB.php';
 
     session_start();
-    $array_amount = array();
 
     if(isset($_GET['id'])&&isset($_GET['amount_product'])){
         $id = $_GET['id'];
         $amount_product = $_GET['amount_product'];
 
-        //Kiem tra co ton tai cookie gio hang cu hay khong ?
+        //Kiểm tra xem còn tồn tại giỏ hàng cũ không?
         if(isset($_COOKIE['save_amount_cart'])){
             $_SESSION['cart'] = json_decode($_COOKIE['save_amount_cart'], true);
         }
@@ -32,7 +31,7 @@
         $_SESSION['cart']['sum_amount_product'] += $amount_product;
 
         //Set cookie cho gio hang
-        setcookie('save_amount_cart',json_encode($_SESSION['cart']), time() + 3600);
+        setcookie('save_amount_cart',json_encode($_SESSION['cart']), time() + 86400);
 
         header("Location: ./detail_book.php?id=$id&success_addToCart");
     }

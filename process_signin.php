@@ -32,7 +32,7 @@
             if($stmt->rowCount() == 1){
                 if($priority == 0){
                     if(isset($_POST['remember_signin'])){
-                        SETCOOKIE("user_signin_remember", $fullname, time()+3600);
+                        SETCOOKIE("user_signin_remember", $fullname, time()+86400); //1 Day
                     }else{
                         $_SESSION['user_signin'] = $fullname; 
                     }  
