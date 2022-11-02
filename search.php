@@ -3,6 +3,7 @@
 
     if(isset($_GET['search_book'])){
         $search_info = $_GET['search_book'];
+
         $sql = "select * from books where title LIKE '%$search_info%' OR description LIKE '%$search_info%'";
 
         $stmt = $connect -> prepare($sql);
@@ -113,6 +114,43 @@
         #top_content_search{
             margin-bottom: 20px;
         }
+
+
+        #add_cart{
+            margin-top: 9px;
+            background-color: var(--main-color);
+            padding: 5px;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 35px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 162px;
+            color: var(--white-color);
+            position: relative;
+        }
+
+
+        #add_cart i{
+            position: absolute;
+            left: 13px;
+        }
+
+
+        #add_cart a{
+            width: 100%;
+            z-index: 999;
+            text-align: center;
+            line-height: 35px;
+        }
+
+        #add_cart:hover a{
+            color: rgba(0,0,0,0.5);
+            font-weight: bold;
+        }
     </style>
 <body>
     <?php include './layout/header.php'?>
@@ -140,9 +178,9 @@
                                 <?php echo("{$book['price']} đ") ?>
                             </span>
                             <div id="add_cart">
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <a href="addToCart.php?id=<?= $book['id'] ?>" class="add_to_cart">
-                                    Thêm vào giỏ hàng
+                                <i class="fas fa-book-open"></i>
+                                <a href="./detail_book.php?id=<?= $book['id']?>" class="add_to_cart">
+                                    Xem chi tiết
                                 </a>
                             </div>
                         </div>

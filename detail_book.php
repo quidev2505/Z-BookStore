@@ -356,7 +356,7 @@
                         <div id="overlay">
                             <div id="content_overlay">
                                 <h2>Thêm vào giỏ hàng thành công !</h2>
-                                <p>Giỏ hàng bạn hiện tại có <span style="color:var(--main-color);"><?=     $_SESSION['cart']['sum_amount_product']; ?></span> sản phẩm </p>
+                                <p>Giỏ hàng bạn hiện tại có <span style="color:var(--main-color);"><?=    $_SESSION['cart_sum_amount_product']; ?></span> sản phẩm </p>
                                 <a id="continue_addtoCart" href="./detail_book.php?id=<?= $_GET['id'];?>">Tiếp tục mua hàng <i class="fa-solid fa-arrow-right"></i></a>
                                 <a href="./check_out.php?id=<?= $_GET['id'];?>">Đặt hàng và thanh toán <i class="fa-solid fa-arrow-right"></i></a>
                             </div>

@@ -377,7 +377,7 @@
                            
                             <label for="price">Giá  tiền</label>
                             <br>
-                            <input type="number" name="price" id="price" style="width:50%; height: 40px; margin-top:10px; border-radius:10px; border:1px solid #ccc;padding:10px" value="<?php echo $price?>" >
+                            <input type="text" name="price" id="price" style="width:50%; height: 40px; margin-top:10px; border-radius:10px; border:1px solid #ccc;padding:10px" value="<?php echo $price?>" >
 
                             <br>
 

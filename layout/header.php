@@ -50,8 +50,8 @@
                 <a href="./view_cart.php" style="    text-decoration: none; color: white;     margin-left: 10px;">
                     Giỏ hàng : <span >&nbsp;
                         <?php
-                            if(isset($_COOKIE['save_amount_cart'])){
-                                echo json_decode($_COOKIE['save_amount_cart'], true)['sum_amount_product'];
+                            if(isset($_COOKIE['cart_sum_amount_product'])){
+                                echo $_COOKIE['cart_sum_amount_product'];
                             }else{
                                 echo 0;
                             }
