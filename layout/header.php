@@ -47,7 +47,11 @@
             <div id="btn_cart" style="cursor:pointer;">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 &nbsp;
-                <a href="./view_cart.php" style="    text-decoration: none; color: white;     margin-left: 10px;">
+                <a href="./view_cart.php" style="  text-decoration: none;
+                    color: white;
+                    margin-left: 10px;
+                    line-height: 40px;
+                    display: block;">
                     Giỏ hàng : <span >&nbsp;
                         <?php
                             if(isset($_COOKIE['cart_sum_amount_product'])){

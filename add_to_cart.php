@@ -14,7 +14,7 @@
 
         //Kiểm tra xem còn tồn tại tổng số lượng sản phẩm giỏ hàng cũ không ?
         if(isset($_COOKIE['cart_sum_amount_product'])){
-            $_SESSION['cart_sum_amount_product'] = json_decode($_COOKIE['cart_sum_amount_product'], true);
+            $_SESSION['cart_sum_amount_product'] = $_COOKIE['cart_sum_amount_product'];
         }
 
         if(empty($_SESSION['cart'][$id])){
