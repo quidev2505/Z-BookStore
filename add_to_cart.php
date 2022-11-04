@@ -31,6 +31,7 @@
             $_SESSION['cart'][$id]['amount'] = $_SESSION['cart'][$id]['amount'] + $amount_product;
         }
 
+
     
         //Them SESSION tong so luong san pham
         $_SESSION['cart_sum_amount_product'] += $amount_product;

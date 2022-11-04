@@ -372,17 +372,13 @@
                                             border: 1px solid var(--main-color);
                                             padding: 5px;
                                             margin-right: 5px;
-                                            border-radius: 3px;color:var(--second-color);" href="?page=<?php echo $i?><?php if(isset($_GET['category_name'])) echo "&category_name=all";?><?php if(isset($_GET['category_id']))
+                                            border-radius: 3px;color:black;background-color:<?php if(!isset($_GET['page'])) {$_GET['page'] = 1;} if($i == $_GET['page']) echo 'red';?>" href="?page=<?php echo $i?><?php if(isset($_GET['category_name'])) echo "&category_name=all";?><?php if(isset($_GET['category_id']))
                                             echo "&category_id=".$_GET['category_id'];?><?php if(isset($_GET['typeofcategory_id']))
                                             echo "&typeofcategory_id=".$_GET['typeofcategory_id'];?>
                                             "><?php echo $i?></a>
                                 <?php };?>
                                 <br>
                                 <br>
-
-                                <div>
-                                    <?php  echo '--- Trang <span style="color:var(--main-color);font-weight:bold;">'.$trang_hien_tai.'</span> / '.$so_trang.' ---';?>
-                                </div>
                             </div>    
                 </div>
             </div>
